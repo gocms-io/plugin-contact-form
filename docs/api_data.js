@@ -1,0 +1,1 @@
+define({ "api": [  {    "type": "get",    "url": "/example",    "title": "Example",    "name": "GetExample",    "group": "Example",    "description": "<p>Get an example count by the exampleId.</p>",    "version": "0.0.0",    "filename": "controllers/example/example_ctrl.go",    "groupTitle": "Example"  }] });

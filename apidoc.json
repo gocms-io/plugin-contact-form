@@ -1,0 +1,7 @@
+{
+  "name": "Contact Form Plugin",
+  "version": "0.0.1",
+  "description": "Contact Form plugin for GoCMS",
+  "title": "Contact Form",
+  "url": "{protocol}://{host}/api"
+}

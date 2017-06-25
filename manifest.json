@@ -11,7 +11,7 @@
   "authorUrl" : "www.menklab.com",
   "authorEmail" : "justin@menklab.com",
   "services": {
-    "bin": "plugin-contact-form",
+    "bin": "contact-form",
     "routes" : [
       {
         "name": "Get Example By ID",
@@ -22,6 +22,7 @@
     ]
   },
   "interface": {
+
 
   }
 }

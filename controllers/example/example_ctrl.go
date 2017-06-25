@@ -2,8 +2,8 @@ package events_ctrl
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"github.com/gocms-io/plugin-contact-form/services"
+	"net/http"
 )
 
 type ExampleController struct {
@@ -29,7 +29,6 @@ func (ec *ExampleController) Default() {
 * @api {get} /example Example
 * @apiName GetExample
 * @apiGroup Example
-* @apiUse ExampleDisplay
 * @apiDescription Get an example count by the exampleId.
  */
 func (ec *ExampleController) getExample(c *gin.Context) {
