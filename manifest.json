@@ -1,0 +1,27 @@
+{
+  "id" : "contact-form.plugins.gocms.io",
+  "version" : "0.0.0",
+  "build" : 1,
+  "name" : "Contact Form Plugin",
+  "title" : "Contact Form",
+  "urls" : "https://gocms.io/plugins",
+  "description" : "Contact Form plugin for gocms. Servers as a good example for plugin development.",
+  "author" : "Justin Menkveld",
+  "authorCompany" : "Menklab LLC",
+  "authorUrl" : "www.menklab.com",
+  "authorEmail" : "justin@menklab.com",
+  "services": {
+    "bin": "plugin-contact-form",
+    "routes" : [
+      {
+        "name": "Get Example By ID",
+        "route": "Public",
+        "method": "GET",
+        "url": "/example/:id"
+      }
+    ]
+  },
+  "interface": {
+
+  }
+}
