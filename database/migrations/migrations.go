@@ -7,7 +7,9 @@ import (
 func Default() *migrate.MemoryMigrationSource {
 
 	migrationsList := migrate.MemoryMigrationSource{
-		Migrations: []*migrate.Migration{},
+		Migrations: []*migrate.Migration{
+			CreateInitial(),
+		},
 	}
 
 	return &migrationsList

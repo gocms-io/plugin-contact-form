@@ -14,10 +14,11 @@
     "bin": "contact-form",
     "routes" : [
       {
-        "name": "Get Example By ID",
+        "name": "Submit Contact Email",
+        "description": "Send contact form submission to recipient email",
         "route": "Public",
-        "method": "GET",
-        "url": "/example/:id"
+        "method": "POST",
+        "url": "/contact-form"
       }
     ]
   },

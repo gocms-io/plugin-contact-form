@@ -1,13 +1,15 @@
 package services
 
 import (
-	"time"
-	"github.com/gocms-io/plugin-contact-form/repositories"
 	"github.com/gocms-io/plugin-contact-form/context"
+	"github.com/gocms-io/plugin-contact-form/repositories"
+	"time"
 )
 
 type ServicesGroup struct {
 	SettingsService ISettingsService
+	MailService     IMailService
+	ContactFormService IContactFormService
 }
 
 func DefaultServicesGroup(rg *repositories.RepositoriesGroup) *ServicesGroup {
@@ -22,8 +24,12 @@ func DefaultServicesGroup(rg *repositories.RepositoriesGroup) *ServicesGroup {
 		settingsService.RefreshSettingsCache()
 	})
 
+	mailService := DefaultMailService()
+
 	sg := &ServicesGroup{
 		SettingsService: settingsService,
+		ContactFormService: DefaultContactFormService(mailService),
+		MailService:     mailService,
 	}
 	return sg
 }

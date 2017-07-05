@@ -1,10 +1,10 @@
 package services
 
 import (
-	"log"
-	"time"
 	"github.com/gocms-io/plugin-contact-form/models"
 	"github.com/gocms-io/plugin-contact-form/repositories"
+	"log"
+	"time"
 )
 
 type ISettingsService interface {
@@ -36,7 +36,7 @@ func (ss *SettingsService) RegisterRefreshCallback(cb func(map[string]models.Set
 	ss.OnRefreshCallbacks = cbs
 
 	if err := ss.RefreshSettingsCache(); err != nil {
-		log.Fatalf("Error getting db settings: %s\n", err.Error())
+		log.Fatalf("Er %s\n", err.Error())
 	}
 
 }
@@ -46,7 +46,7 @@ func (ss *SettingsService) RefreshSettingsCache() error {
 	// get all permissions
 	settings, err := ss.RepositoriesGroup.SettingsRepository.GetAll()
 	if err != nil {
-		log.Fatalf("Fatal - Error caching permissions: %s\n", err.Error())
+		log.Fatalf("Fatal - Error cachig permissions: %s\n", err.Error())
 		return err
 	}
 

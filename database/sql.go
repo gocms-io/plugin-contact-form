@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 	"github.com/gocms-io/plugin-contact-form/context"
-	"github.com/gocms-io/plugin-contact-form/database/migrations/sql"
+	"github.com/gocms-io/plugin-contact-form/database/migrations"
 	"github.com/jmoiron/sqlx"
 	"github.com/rubenv/sql-migrate"
 	"log"

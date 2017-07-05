@@ -15,13 +15,16 @@ type RuntimeConfig struct {
 	DbServer   string
 
 	// Debug
-	Debug         bool
-	DebugSecurity bool
+	Debug bool
 
 	// App
 	SettingsRefreshRate int64
 
+	// Theme
+	ActiveTheme string
+
 	// SMTP
+	SMTPRecipient   string
 	SMTPServer      string
 	SMTPPort        int64
 	SMTPUser        string
@@ -40,12 +43,15 @@ func (c *RuntimeConfig) ApplySettingsToConfig(settings map[string]models.Setting
 	// App
 	c.SettingsRefreshRate = GetIntOrFail("SETTINGS_REFRESH_RATE", settings)
 
+	// Theme
+	c.ActiveTheme = GetStringOrFail("ACTIVE_THEME", settings)
+
 	// SMTP
-	c.SMTPServer = GetStringOrFail("SMTP_SERVER", settings)
-	c.SMTPPort = GetIntOrFail("SMTP_PORT", settings)
-	c.SMTPUser = GetStringOrFail("SMTP_USER", settings)
-	c.SMTPPassword = GetStringOrFail("SMTP_PASSWORD", settings)
-	c.SMTPFromAddress = GetStringOrFail("SMTP_FROM_ADDRESS", settings)
-	c.SMTPSimulate = GetBoolOrFail("SMTP_SIMULATE", settings)
+	c.SMTPRecipient = GetStringOrFail("CONTACT_FORM_RECIPIENT", settings)
+	c.SMTPServer = GetStringOrFail("CONTACT_FORM_SMTP_SERVER", settings)
+	c.SMTPPort = GetIntOrFail("CONTACT_FORM_SMTP_PORT", settings)
+	c.SMTPUser = GetStringOrFail("CONTACT_FORM_SMTP_USER", settings)
+	c.SMTPPassword = GetStringOrFail("CONTACT_FORM_SMTP_PASSWORD", settings)
+	c.SMTPFromAddress = GetStringOrFail("CONTACT_FORM_SMTP_FROM_ADDRESS", settings)
 
 }
