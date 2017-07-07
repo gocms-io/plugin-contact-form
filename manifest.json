@@ -2,7 +2,7 @@
   "id" : "contact-form.plugins.gocms.io",
   "version" : "0.0.0",
   "build" : 1,
-  "name" : "Contact Form Plugin",
+  "name" : "GoCMS Contact Form",
   "title" : "Contact Form",
   "urls" : "https://gocms.io/plugins",
   "description" : "Contact Form plugin for gocms. Servers as a good example for plugin development.",
@@ -23,7 +23,7 @@
     ]
   },
   "interface": {
-
-
+    "public": "public.js",
+    "publicVendor" : "public_vendor.js"
   }
 }
