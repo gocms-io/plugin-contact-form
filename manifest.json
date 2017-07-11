@@ -24,7 +24,7 @@
     ]
   },
   "interface": {
-    "public": "/public.js",
+    "public": "public.js",
     "publicVendor" : "public_vendor.js"
   }
 }

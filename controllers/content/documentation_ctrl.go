@@ -18,6 +18,5 @@ func DefaultDocumentationController(r *gin.Engine) *DocumentationController {
 }
 
 func (dc *DocumentationController) Default() {
-	// register goCMS Docs Route
-	dc.r.Static("/docs", "/docs/")
+	dc.r.Static("/docs", "./docs/")
 }

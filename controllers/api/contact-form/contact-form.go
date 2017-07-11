@@ -29,7 +29,7 @@ func (ec *ContactFormController) Default() {
 }
 
 /**
-* @api {post} /contact-form Example
+* @api {post} /contact-form Submit Contact Form
 * @apiName SubmitContactForm
 * @apiGroup ContactForm
 * @apiUse ContactFormInput

@@ -18,6 +18,7 @@ type ApiControllers struct {
 
 type ContentControllers struct {
 	DocumentationController *content_ctrl.DocumentationController
+	StaticContentController *content_ctrl.StaticContentController
 }
 
 func DefaultControllerGroup(r *gin.Engine, sg *services.ServicesGroup) *ControllersGroup {
@@ -27,6 +28,7 @@ func DefaultControllerGroup(r *gin.Engine, sg *services.ServicesGroup) *Controll
 		},
 		contentControllers: &ContentControllers{
 			DocumentationController: content_ctrl.DefaultDocumentationController(r),
+			StaticContentController: content_ctrl.DefaultStaticContentController(r),
 		},
 	}
 
