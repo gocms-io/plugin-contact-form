@@ -12,12 +12,9 @@ function* handleContactFormSaga(action) {
     let {res, err} = yield call(Post, "/api/contact-form.plugins.gocms.io/contact-form", action.data); // calling our api method
     if (res) {
         // push user info to store and storage
-        console.log("res: ", res);
         yield put(apiActions.success(action.key, res.data));
     }
     else if (err) {
-        console.log("error:", err);
-        // fetch page data based on uri
         yield put(apiActions.failure(action.key, err));
     }
 }

@@ -15,7 +15,7 @@ class ContactForm extends React.Component {
                     label: this.props.nameLabel || "Name",
                 },
                 email: {
-                    label: this.props.emailLabel ||"Email",
+                    label: this.props.emailLabel || "Email",
                 },
             },
             submit: {
@@ -48,17 +48,12 @@ class ContactForm extends React.Component {
 
     render() {
 
-        if (this.state.shake) {
-            setTimeout(function () {
-                this.setState({shake: false});
-            }.bind(this), 1000);
-        }
-
         return (
             <GForm id={this.props.id} className={this.props.className} name={this.props.name}
                    onSubmit={this.state.submit.onSubmit}
                    submitBtn={this.state.submit.btnLabel}
-                   submitBtnClassName={this.state.submit.btnClassName + (this.state.shake ? " btn-animate-shake" : " ")}>
+                   submitBtnClassName={this.state.submit.btnClassName}
+                   submitBtnShake={this.state.shake}>
                 <GInput id="name" name="name" type="text" label={this.state.fields.name.label} required/>
                 <GInput id="email" name="email" type="text" label={this.state.fields.email.label} validations="isEmail"
                         validationError="Please enter a valid email." required/>

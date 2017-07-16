@@ -59,5 +59,6 @@ func (cfc *ContactFormController) submitContactForm(c *gin.Context) {
 	//	return
 	//}
 
-	c.Status(http.StatusOK)
+	//c.Status(http.StatusOK)
+	c.JSON(http.StatusUnauthorized, gin.H{"message": "there was an error"})
 }
