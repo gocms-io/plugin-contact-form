@@ -6,7 +6,6 @@ import (
 	"github.com/gocms-io/plugin-contact-form/services"
 	"github.com/gocms-io/plugin-contact-form/utility/errors"
 	"net/http"
-	"time"
 )
 
 type ContactFormController struct {
@@ -46,19 +45,19 @@ func (cfc *ContactFormController) submitContactForm(c *gin.Context) {
 	}
 
 	// create domain model
-	contactForm := models.ContactForm{
-		Email:      cfi.Email,
-		Name:       cfi.Name,
-		Message:    cfi.Message,
-		Additional: cfi.Additional,
-		Created:    time.Now(),
-	}
-
-	err = cfc.ServiceGroup.ContactFormService.ValidateAndSubmit(&contactForm)
-	if err != nil {
-		errors.Response(c, http.StatusBadRequest, errors.ApiError_Server, err)
-		return
-	}
+	//contactForm := models.ContactForm{
+	//	Email:      cfi.Email,
+	//	Name:       cfi.Name,
+	//	Message:    cfi.Message,
+	//	Additional: cfi.Additional,
+	//	Created:    time.Now(),
+	//}
+	//
+	//err = cfc.ServiceGroup.ContactFormService.ValidateAndSubmit(&contactForm)
+	//if err != nil {
+	//	errors.Response(c, http.StatusBadRequest, errors.ApiError_Server, err)
+	//	return
+	//}
 
 	c.Status(http.StatusOK)
 }

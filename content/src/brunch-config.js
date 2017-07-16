@@ -16,7 +16,16 @@ module.exports = {
             }
         }
     },
-    npm: {},
+    npm: {
+        enabled: true,
+        aliases: {
+            "gocms/base/components/gForm/GForm": 'gocms-brunch-slipstream',
+            "gocms/base/components/gForm/GInput": 'gocms-brunch-slipstream',
+            "gocms/base/components/gForm/GTextArea": 'gocms-brunch-slipstream',
+            "gocms/base/services/api": 'gocms-brunch-slipstream',
+            "gocms/base/actions/apiRequestActions": 'gocms-brunch-slipstream'
+        }
+    },
     plugins: {
         babel: {
             presets: ['es2015', 'stage-0', 'react'],
@@ -38,10 +47,13 @@ module.exports = {
             sourceMapEmbed: true,
             debug: 'comments'
         },
-        copycat: {}
+        copycat: {},
+        gocmsSlipstream: {
+            enabled: true
+        }
     },
     modules: {
-        nameCleaner: path => path.replace(/^(public|admin)/, "contact-form.plugins.gocms.io")
+        nameCleaner: path => path.replace('', "contact-form.plugins.gocms.io/")
     },
     optimize: false,
     notifications: false,
@@ -51,7 +63,6 @@ module.exports = {
         watched: [
             // 'admin',
             'public',
-            'public_vendor',
             'initialize.js'
         ]
     },
