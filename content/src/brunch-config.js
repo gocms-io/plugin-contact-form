@@ -21,7 +21,7 @@ module.exports = {
         aliases: {
             "gocms/base/components/gForm/GForm": 'gocms-brunch-slipstream',
             "gocms/base/components/gForm/GInput": 'gocms-brunch-slipstream',
-            "gocms/base/components/gForm/GTextArea": 'gocms-brunch-slipstream',
+            "gocms/base/components/gForm/GError": 'gocms-brunch-slipstream',
             "gocms/base/services/api": 'gocms-brunch-slipstream',
             "gocms/base/actions/apiRequestActions": 'gocms-brunch-slipstream'
         }

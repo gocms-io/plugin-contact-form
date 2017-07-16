@@ -3,7 +3,7 @@ import {contact_form_submit} from './config/actions';
 import {connect} from 'react-redux'
 import GForm from "gocms/base/components/gForm/GForm"
 import GInput from 'gocms/base/components/gForm/GInput'
-import GTextArea from 'gocms/base/components/gForm/GTextArea'
+import GError from 'gocms/base/components/gForm/GError'
 
 class ContactForm extends React.Component {
     constructor(props) {
@@ -29,6 +29,7 @@ class ContactForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("nextProps: ", nextProps);
         if (!!nextProps.err && nextProps.reqTime != this.props.reqTime) {
             this.setState({shake: true})
         }
@@ -58,6 +59,9 @@ class ContactForm extends React.Component {
                 <GInput id="email" name="email" type="text" label={this.state.fields.email.label} validations="isEmail"
                         validationError="Please enter a valid email." required/>
                 {this.props.children}
+                <GError
+                errMessage={this.state.errMessage}
+                />
             </GForm>
         )
     }
