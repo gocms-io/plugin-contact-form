@@ -10,9 +10,7 @@ module.exports = {
         },
         stylesheets: {
             joinTo: {
-                'public.css': ["public/styles/index.scss"],
-                // 'admin.css': ["admin/config/styles/index.scss"],
-                // 'admin_ie.css': ["app/config/styles/ie.scss"],
+                'public.css': ["public/config/styles/index.scss"]
             }
         }
     },

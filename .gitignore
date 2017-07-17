@@ -3,6 +3,6 @@
 /vendor/*
 !/vendor/vendor.json
 /bin
+content/*
+!content/src
 content/src/node_modules
-public.js
-public_vendor.js

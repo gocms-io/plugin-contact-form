@@ -1,0 +1,23 @@
+.contact-form-plugins-gocms-io-animate {
+}
+
+.contact-form-plugins-gocms-io-animate-enter {
+  opacity: 0;
+  top: 10px;
+  position: relative;
+}
+
+.contact-form-plugins-gocms-io-animate-enter.contact-form-plugins-gocms-io-animate-enter-active {
+  opacity: 1;
+  top: 0;
+  position: relative;
+  transition: all 200ms ease-in;
+
+}
+
+.contact-form-plugins-gocms-io-animate-leave {
+  opacity: 1;
+  top: 0;
+  position: relative;
+  transition: all 200ms ease-in;
+}

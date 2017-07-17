@@ -1,6 +1,7 @@
 import React from 'react'
 import {contact_form_submit} from './config/actions';
 import {connect} from 'react-redux'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 import GForm from "gocms/base/components/gForm/GForm"
 import GInput from 'gocms/base/components/gForm/GInput'
 import GError from 'gocms/base/components/gForm/GError'
@@ -21,26 +22,44 @@ class ContactForm extends React.Component {
             submit: {
                 btnLabel: this.props.submitBtnLabel || "Submit",
                 btnClassName: this.props.submitBtnClassName || "",
-                onSubmit: this.handleSubmit,
+                onSubmit: this.handleSubmit
             },
+            busy: false,
             shake: false,
-            errMessage: this.props.errMessage || null
+            errMessage: this.props.errMessage || null,
+            success: false
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("nextProps: ", nextProps);
-        if (!!nextProps.err && nextProps.reqTime != this.props.reqTime) {
-            this.setState({shake: true})
+        if (nextProps.reqTime != this.props.reqTime) {
+            // busy button
+            this.setState({busy: false});
+
+            // err shake button
+            if (!!nextProps.err) {
+                this.setState({shake: true});
+            }
+            // good request display success
+            else {
+                this.setState({success: true})
+            }
         }
+
+        // error message
         if (!!nextProps.errMessage && nextProps.errMessage != this.state.errMessage) {
             this.setState({errMessage: nextProps.errMessage});
         }
+
+
     }
 
     handleSubmit(model) {
         this.props.contact_form_submit(this.props.name, model);
-        this.setState({errMessage: null});
+        this.setState({
+            errMessage: null,
+            busy: true
+        });
     }
 
     componentDidMount() {
@@ -48,21 +67,47 @@ class ContactForm extends React.Component {
     }
 
     render() {
+        let html = null;
+        //todo figureout why animation doesn't work
+        // todo then finish the admin injection for plugin frontend
+        // todo then finish remaining contact forms
+        // todo then finish about page
+        // if the button shakes stop it!
+        setTimeout(function () {
+            this.setState({success: true});
+        }.bind(this), 1000);
 
+        if (this.state.success) {
+            html =
+                <div dangerouslySetInnerHTML={{__html: this.props.successMsg}}/>
+            ;
+        }
+        else {
+            html =
+                <GForm id={this.props.id} className={this.props.className} name={this.props.name}
+                       onSubmit={this.state.submit.onSubmit}
+                       submitBtn={this.state.submit.btnLabel}
+                       submitBtnClassName={this.state.submit.btnClassName}
+                       submitBtnShake={this.state.shake}
+                       submitBtnBusy={this.state.busy}
+                >
+                    <GInput id="name" name="name" type="text" label={this.state.fields.name.label} required/>
+                    <GInput id="email" name="email" type="text" label={this.state.fields.email.label}
+                            validations="isEmail"
+                            validationError="Please enter a valid email." required/>
+                    {this.props.children}
+                    <GError
+                        errMessage={this.state.errMessage}
+                    />
+                </GForm>
+            ;
+        }
         return (
-            <GForm id={this.props.id} className={this.props.className} name={this.props.name}
-                   onSubmit={this.state.submit.onSubmit}
-                   submitBtn={this.state.submit.btnLabel}
-                   submitBtnClassName={this.state.submit.btnClassName}
-                   submitBtnShake={this.state.shake}>
-                <GInput id="name" name="name" type="text" label={this.state.fields.name.label} required/>
-                <GInput id="email" name="email" type="text" label={this.state.fields.email.label} validations="isEmail"
-                        validationError="Please enter a valid email." required/>
-                {this.props.children}
-                <GError
-                errMessage={this.state.errMessage}
-                />
-            </GForm>
+            <CSSTransitionGroup transitionName="contact-form-plugins-gocms-io-animation"
+                                transitionEnterTimeout={500}
+                                transitionLeaveTimeout={500}>
+                {html}
+            </CSSTransitionGroup>
         )
     }
 }
