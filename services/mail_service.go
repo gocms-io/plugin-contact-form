@@ -30,7 +30,7 @@ type Mail struct {
 }
 
 func DefaultMailService() *MailService {
-	defaultTemplatePath := filepath.Join("./content/themes", context.Config.ActiveTheme, "theme_email.tmpl")
+	defaultTemplatePath := filepath.Join("../../themes", context.Config.ActiveTheme, "theme_email.tmpl")
 	defaultTemplate := template.Must(template.ParseGlob(defaultTemplatePath))
 
 	mailService := &MailService{

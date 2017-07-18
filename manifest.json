@@ -1,18 +1,19 @@
 {
-  "id" : "contact-form.plugins.gocms.io",
-  "version" : "0.0.0",
-  "build" : 1,
-  "name" : "Contact Form Plugin",
-  "title" : "Contact Form",
-  "urls" : "https://gocms.io/plugins",
-  "description" : "Contact Form plugin for gocms. Servers as a good example for plugin development.",
-  "author" : "Justin Menkveld",
-  "authorCompany" : "Menklab LLC",
-  "authorUrl" : "www.menklab.com",
-  "authorEmail" : "justin@menklab.com",
+  "id": "contact-form.plugins.gocms.io",
+  "version": "0.0.0",
+  "build": 1,
+  "name": "GoCMS Contact Form",
+  "title": "Contact Form",
+  "urls": "https://gocms.io/plugins",
+  "description": "Contact Form plugin for gocms. Servers as a good example for plugin development.",
+  "author": "Justin Menkveld",
+  "authorCompany": "Menklab LLC",
+  "authorUrl": "www.menklab.com",
+  "authorEmail": "justin@menklab.com",
   "services": {
+    "docs": "/docs",
     "bin": "contact-form",
-    "routes" : [
+    "routes": [
       {
         "name": "Submit Contact Email",
         "description": "Send contact form submission to recipient email",
@@ -23,7 +24,11 @@
     ]
   },
   "interface": {
-
-
+    "public": "public.js",
+    "publicVendor": "public_vendor.js",
+    "publicStyle": "public.css",
+    "admin": "admin.js",
+    "adminVendor": "admin_vendor.js",
+    "adminStyle": "admin.css"
   }
 }

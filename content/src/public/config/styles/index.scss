@@ -1,0 +1,26 @@
+.contact-form-plugins-gocms-io-wrapper {
+  overflow: hidden;
+}
+
+.contact-form-plugins-gocms-io-animation-enter {
+  position: relative;
+  opacity: 0;
+  left: 1000px;
+}
+
+.contact-form-plugins-gocms-io-animation-enter.contact-form-plugins-gocms-io-animation-enter-active {
+  opacity: 1;
+  transition: all 200ms ease-in;
+  left: 0;
+}
+
+.contact-form-plugins-gocms-io-animation-leave {
+  position: relative;
+  opacity: 1;
+  left: 0;
+}
+.contact-form-plugins-gocms-io-animation-leave.contact-form-plugins-gocms-io-animation-leave-active {
+  opacity: 0;
+  transition: all 200ms ease-in;
+  left: -1000px;
+}
