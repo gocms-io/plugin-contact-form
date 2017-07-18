@@ -6,3 +6,4 @@
 content/*
 !content/src
 content/src/node_modules
+npm-debug.log

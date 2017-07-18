@@ -6,6 +6,7 @@ import (
 	"github.com/gocms-io/plugin-contact-form/services"
 	"github.com/gocms-io/plugin-contact-form/utility/errors"
 	"net/http"
+	"time"
 )
 
 type ContactFormController struct {
