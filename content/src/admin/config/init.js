@@ -17,4 +17,4 @@ export default plugin;
 /////////////////////////////////////////////////////////////////
 // list all components that need to be included in compile //////
 /////////////////////////////////////////////////////////////////
-require("../ContactForm"); // this is needed because it is not included in a route or anything that gets hotloaded by default
+// require("../ContactFormAdmin"); // this is not needed because it is hotloaded via a route

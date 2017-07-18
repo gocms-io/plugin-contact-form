@@ -26,6 +26,9 @@
   "interface": {
     "public": "public.js",
     "publicVendor": "public_vendor.js",
-    "publicStyle": "public.css"
+    "publicStyle": "public.css",
+    "admin": "admin.js",
+    "adminVendor": "admin_vendor.js",
+    "adminStyle": "admin.css"
   }
 }

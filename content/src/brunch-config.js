@@ -2,15 +2,21 @@ module.exports = {
     sourceMaps: 'inline',
     files: {
         javascripts: {
-            joinTo: {
-                "public.js": [/^public/, "initialize.js"],
-                // "admin.js": /^admin/,
-                "public_vendor.js": /^(?!public|admin)/,
+            entryPoints: {
+                "public/config/init.js": {
+                    "public.js": [/^public/],
+                    "public_vendor.js": [/^(?!public)/]
+                },
+                "admin/config/init.js": {
+                    "admin.js": [/^admin/],
+                    "admin_vendor.js": [/^(?!admin)/]
+                }
             }
         },
         stylesheets: {
             joinTo: {
-                'public.css': ["public/config/styles/index.scss"]
+                'public.css': ["public/config/styles/index.scss"],
+                'admin.css': ["admin/config/styles/index.scss"]
             }
         }
     },
@@ -59,9 +65,8 @@ module.exports = {
     paths: {
         public: '../',
         watched: [
-            // 'admin',
-            'public',
-            'initialize.js'
+            'admin',
+            'public'
         ]
     },
     overrides: {
