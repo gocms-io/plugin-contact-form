@@ -1,23 +1,26 @@
-.contact-form-plugins-gocms-io-animate {
+.contact-form-plugins-gocms-io-wrapper {
+  overflow: hidden;
 }
 
-.contact-form-plugins-gocms-io-animate-enter {
+.contact-form-plugins-gocms-io-animation-enter {
+  position: relative;
   opacity: 0;
-  top: 10px;
-  position: relative;
+  left: 1000px;
 }
 
-.contact-form-plugins-gocms-io-animate-enter.contact-form-plugins-gocms-io-animate-enter-active {
+.contact-form-plugins-gocms-io-animation-enter.contact-form-plugins-gocms-io-animation-enter-active {
   opacity: 1;
-  top: 0;
-  position: relative;
   transition: all 200ms ease-in;
-
+  left: 0;
 }
 
-.contact-form-plugins-gocms-io-animate-leave {
-  opacity: 1;
-  top: 0;
+.contact-form-plugins-gocms-io-animation-leave {
   position: relative;
+  opacity: 1;
+  left: 0;
+}
+.contact-form-plugins-gocms-io-animation-leave.contact-form-plugins-gocms-io-animation-leave-active {
+  opacity: 0;
   transition: all 200ms ease-in;
+  left: -1000px;
 }

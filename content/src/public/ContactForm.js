@@ -27,7 +27,8 @@ class ContactForm extends React.Component {
             busy: false,
             shake: false,
             errMessage: this.props.errMessage || null,
-            success: false
+            success: false,
+            wait: false
         };
     }
 
@@ -42,7 +43,10 @@ class ContactForm extends React.Component {
             }
             // good request display success
             else {
-                this.setState({success: true})
+                this.setState({
+                    success: true,
+                    wait: true
+                })
             }
         }
 
@@ -68,23 +72,14 @@ class ContactForm extends React.Component {
 
     render() {
         let html = null;
-        //todo figureout why animation doesn't work
-        // todo then finish the admin injection for plugin frontend
-        // todo then finish remaining contact forms
-        // todo then finish about page
-        // if the button shakes stop it!
-        setTimeout(function () {
-            this.setState({success: true});
-        }.bind(this), 1000);
-
         if (this.state.success) {
             html =
-                <div dangerouslySetInnerHTML={{__html: this.props.successMsg}}/>
+                <div key="success" dangerouslySetInnerHTML={{__html: this.props.successMsg}}/>
             ;
         }
         else {
             html =
-                <GForm id={this.props.id} className={this.props.className} name={this.props.name}
+                <GForm key="form" id={this.props.id} className={this.props.className} name={this.props.name}
                        onSubmit={this.state.submit.onSubmit}
                        submitBtn={this.state.submit.btnLabel}
                        submitBtnClassName={this.state.submit.btnClassName}
@@ -102,12 +97,25 @@ class ContactForm extends React.Component {
                 </GForm>
             ;
         }
+
+        // handle wait so that transition looks good
+        if (this.state.wait) {
+            html = null;
+            setTimeout(function () {
+                this.setState({
+                    wait: false
+                });
+            }.bind(this), 201);
+        }
         return (
-            <CSSTransitionGroup transitionName="contact-form-plugins-gocms-io-animation"
-                                transitionEnterTimeout={500}
-                                transitionLeaveTimeout={500}>
-                {html}
-            </CSSTransitionGroup>
+            <div className="contact-form-plugins-gocms-io-wrapper">
+                <CSSTransitionGroup transitionName="contact-form-plugins-gocms-io-animation"
+                                    transitionEnterTimeout={400}
+                                    transitionLeaveTimeout={200}>
+
+                    {html}
+                </CSSTransitionGroup>
+            </div>
         )
     }
 }
