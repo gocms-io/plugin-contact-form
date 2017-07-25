@@ -18,7 +18,9 @@ func CreateInitial() *migrate.Migration {
 			`, `
 			INSERT INTO gocms_settings (name, value, description) VALUES('CONTACT_FORM_SMTP_PASSWORD', 'PASSWORD_HERE', 'Password from SMTP authentication');
 			`, `
-			INSERT INTO gocms_settings (name, value, description) VALUES('CONTACT_FORM_SMTP_FROM_ADDRESS', 'FROM NAME HERE <email@address.com>', 'FROM Name and email address for outgoing email. ');
+			INSERT INTO gocms_settings (name, value, description) VALUES('CONTACT_FORM_SMTP_FROM_ADDRESS', 'email@address.com', 'FROM Address and email address for outgoing email. ');
+			`, `
+			INSERT INTO gocms_settings (name, value, description) VALUES('CONTACT_FORM_SMTP_FROM_NAME', 'FROM NAME HERE', 'FROM Name and email address for outgoing email. ');
 			`,
 		},
 		Down: []string{
@@ -29,6 +31,7 @@ func CreateInitial() *migrate.Migration {
 			"DELETE FROM gocms_settings WHERE name=CONTACT_FORM_SMTP_USER",
 			"DELETE FROM gocms_settings WHERE name=CONTACT_FORM_SMTP_PASSWORD",
 			"DELETE FROM gocms_settings WHERE name=CONTACT_FORM_SMTP_FROM_ADDRESS",
+			"DELETE FROM gocms_settings WHERE name=CONTACT_FORM_SMTP_FROM_NAME",
 		},
 	}
 
