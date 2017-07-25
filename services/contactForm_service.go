@@ -36,7 +36,8 @@ func (ms *ContactFormService) ValidateAndSubmit(contactForm *models.ContactForm)
 		Subject:  "Contact Form Submission",
 		Body:     textBody,
 		BodyHTML: htmlBody,
-		From:     fmt.Sprintf("%v <%v>", contactForm.Name, contactForm.Email),
+		From:     fmt.Sprintf("%v <%v>", contactForm.Name, context.Config.SMTPFromAddress),
+		ReplyTo:  fmt.Sprintf("%v <%v>", contactForm.Name, contactForm.Email),
 	}
 
 	// send email for recipient

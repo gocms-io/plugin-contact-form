@@ -30,6 +30,7 @@ type RuntimeConfig struct {
 	SMTPUser        string
 	SMTPPassword    string
 	SMTPFromAddress string
+	SMTPFromName    string
 	SMTPSimulate    bool
 }
 
@@ -53,5 +54,6 @@ func (c *RuntimeConfig) ApplySettingsToConfig(settings map[string]models.Setting
 	c.SMTPUser = GetStringOrFail("CONTACT_FORM_SMTP_USER", settings)
 	c.SMTPPassword = GetStringOrFail("CONTACT_FORM_SMTP_PASSWORD", settings)
 	c.SMTPFromAddress = GetStringOrFail("CONTACT_FORM_SMTP_FROM_ADDRESS", settings)
+	c.SMTPFromName = GetStringOrFail("CONTACT_FORM_SMTP_FROM_NAME", settings)
 
 }
